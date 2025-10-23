@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+# SPDX-FileCopyrightText: 2025 Kotaro Oshima
 import sys
 
 ans = 0
