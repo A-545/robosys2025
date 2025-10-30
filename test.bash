@@ -8,17 +8,21 @@ ng () {
 }
 
 res=0
-
+### NORMAL INPUT ###
 out=$(seq 5 | ./plus)
-++ seq 5
-++ ./plus
-+ out=15
 [ "${out}" = 15 ] || ng "$LINENO"
-+ '[' 15 = 15 ']'
+
+### STRANGE INPUT ###
+out=$(echo あ | ./plus)
+[ "$?" = 1 ]      || ng "$LINENO"
+[ "$?" = 1 ]      || ng "$LINENO"
+
+out=$(echo | ./plus)
+[ "$?" = 1 ]      || ng "$LINENO"
 
 [ "${res}" = 0 ] && echo OK
-+ '[' 0 = 0 ']'
-+ echo OK
-OK
+[ "${out}" = "" ] || ng "$LINENO"
+
+[ "$res" = 0 ] && echo OK
+
 exit $res
-+ exit 0
