@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2025 Kotaro Oshima
+# SPDX-License-Identifier: BSD-3-Clause
+import sys
+
+for x in sys.argv[1:]:
+    value = float(x) * 1.1
+    print(value)
+
