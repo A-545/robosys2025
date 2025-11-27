@@ -6,12 +6,11 @@ import sys
 import math
 
 
-mode = sys.argv[1]
-
-
 for line in sys.stdin:
-    if line.strip():
-        x = float(line)
-        ans = x * (1.10 if mode == "-t" else 0.10)
-        ans_floor = math.floor(ans)
-        print(ans_floor)
+    line.strip():
+    if not line:
+        continue
+    x = float(line)
+    ans = x * 1.10 
+    ans_floor = math.floor(ans)
+    prin(ans_floor)
