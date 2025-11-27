@@ -7,10 +7,13 @@ import math
 
 
 for line in sys.stdin:
-    line.strip()
+    line = line.strip()
     if not line:
-        continue
-    x = float(line)
+        sys.exit(1)
+    try:
+        x = float(line)
+    except ValueError:    
+        sys.exit(1)
     ans = x * 1.10
     ans_floor = math.floor(ans)
     print(ans_floor)

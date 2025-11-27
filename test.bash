@@ -11,17 +11,33 @@ res=0
 
 
 ### NORMAL INPUT ###
-out=$( 1000 | ./tax)          
-[ "${out}" = "1100" ] || ng "$LINENO"  
+out=$(echo 1000 | ./tax) #通常
+[ "$out" = 1100 ] || ng "$LINENO"
+
+out=$(echo 99.9 | ./tax) #少数
+[ "$out" = 109 ] || ng "$LINENO"
+
+out=$(printf "100\n200\n300\n" | ./tax) #複数
+expected=$(printf "110\n220\n330\n")
+[ "$out" = "$expected" ] || ng "$LINENO"
+
+out=$(echo 0 | ./tax) #境界値
+[ "$out" = 0 ] || ng "$LINENO"
+
+out=$(echo 1 | ./tax)
+[ "$out" = 1 ] || ng "$LINENO"
 
 ### STRANGE INPUT ###
-out=$(echo あ | ./tax)        
-[ "$?" = 1 ] || ng "$LINENO"  
-[ "${out}" = "" ] || ng "$LINENO"
+out=$(echo あ | ./tax) #文字列
+[ "$?" = 1 ] || ng "$LINENO"
+[ "$out" = "" ] || ng "$LINENO"
 
-out=$(echo | ./tax)           
-[ "$?" = 1 ] || ng "$LINENO" 
-[ "${out}" = "" ] || ng "$LINENO"
+out=$(echo | ./tax 2) #空行
+[ "$?" = 1 ] || ng "$LINENO"
+[ "$out" = "" ] || ng "$LINENO"
 
-[ "$res" = 0 ] && echo OK
-exit $res
+out=$(printf "100\nabc\n200\n" | ./tax) #複数に文字列
+[ "$?" = 1 ] || ng "$LINENO"
+[ "$out" = "110" ] || ng "$LINENO"
+
+[ "$res" = 0 ] && echo 
