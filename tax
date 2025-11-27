@@ -6,14 +6,20 @@ import sys
 import math
 
 
-for line in sys.stdin:
-    line = line.strip()
+lines = sys.stdin.readlines() 
+ans = []
+
+for line in lines:
+    line = line.strip() 
     if not line:
         sys.exit(1)
     try:
         x = float(line)
     except ValueError:    
         sys.exit(1)
-    ans = x * 1.10
-    ans_floor = math.floor(ans)
-    print(ans_floor)
+
+for line in lines:
+    x = float(line.strip())
+    ans.append(str(math.floor(x * 1.10)))
+
+print("\n".join(ans))

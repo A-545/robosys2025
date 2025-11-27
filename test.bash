@@ -36,8 +36,16 @@ out=$(echo | ./tax 2) #空行
 [ "$?" = 1 ] || ng "$LINENO"
 [ "$out" = "" ] || ng "$LINENO"
 
-out=$(printf "100\nabc\n200\n" | ./tax) #複数に文字列
+out=$(echo 1a | ./tax)
+[ "$?" = 1 ] || ng "$LINENO" #文字列が混じる
+[ "$out" = "" ] || ng "$LINENO"
+
+out=$(printf "100\nabc\n200\n" | ./tax) #複数行に文字列
 [ "$?" = 1 ] || ng "$LINENO"
 [ "$out" = "110" ] || ng "$LINENO"
+
+out=$(printf "100\n1a\n200\n" | ./tax)
+[ "$?" = 1 ] || ng "$LINENO" #複数行に文字列が混ざる
+[ "$out" = "" ] || ng "$LINENO"
 
 [ "$res" = 0 ] && echo 
