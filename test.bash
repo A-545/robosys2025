@@ -42,7 +42,7 @@ out=$(echo 1a | ./tax)
 
 out=$(printf "100\nabc\n200\n" | ./tax) #複数行に文字列
 [ "$?" = 1 ] || ng "$LINENO"
-[ "$out" = "110" ] || ng "$LINENO"
+[ "$out" = "" ] || ng "$LINENO"
 
 out=$(printf "100\n1a\n200\n" | ./tax)
 [ "$?" = 1 ] || ng "$LINENO" #複数行に文字列が混ざる
