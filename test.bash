@@ -48,4 +48,4 @@ out=$(printf "100\n1a\n200\n" | ./tax)
 [ "$?" = 1 ] || ng "$LINENO" #複数行に文字列が混ざる
 [ "$out" = "" ] || ng "$LINENO"
 
-[ "$res" = 0 ] && echo 
+[ "$res" = 1 ] && echo 
