@@ -32,7 +32,7 @@ out=$(echo あ | ./tax) #文字列
 [ "$?" = 1 ] || ng "$LINENO"
 [ "$out" = "" ] || ng "$LINENO"
 
-out=$(echo | ./tax 2) #空行
+out=$(echo | ./tax) #空行
 [ "$?" = 1 ] || ng "$LINENO"
 [ "$out" = "" ] || ng "$LINENO"
 
