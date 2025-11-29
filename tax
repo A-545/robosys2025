@@ -12,14 +12,12 @@ ans = []
 for line in lines:
     line = line.strip() 
     if not line:
-        sys.exit(1)
+        continue
     try:
         x = float(line)
     except ValueError:    
-        sys.exit(1)
+        continue
 
-for line in lines:
-    x = float(line.strip())
     ans.append(str(math.floor(x * 1.10)))
 
 print("\n".join(ans))
