@@ -2,28 +2,27 @@
 ![test](https://github.com/A-545/robosys2025/actions/workflows/test.yml/badge.svg)
 
 ## 概要
-`tax` は標準入力から数値を受け取り、*税率10%*を加算して小数点以下切り捨て
+`tax` は標準入力から数値を受け取り、_税率10%_を加算して小数点以下切り捨て
 で出力するコマンドです。
 
 ## インストール方法 (Ubuntu環境)
 以下コマンドをターミナル上で入力
 
-**Git のインストール (インストール済みの方は不要)**
+### Git のインストール (インストール済みの方は不要)
 ```
 sudo apt update
 ```
 ```
 sudo apt install git
 ```
-**リポジトリをクローン**
+#### リポジトリをクローンして移動
 ```
 git clone https://github.com/A-545/robosys2025.git
 ```
-**作成されたフォルダに移動**
 ```
 cd robosys2025
 ```
-**実行権限の付与**
+##### 実行権限の付与
 ```
 chmod +x tax
 ```
@@ -78,6 +77,7 @@ $ printf "100\nabc\n200\n1a\n300\n" | ./tax
 ```
 
 ## ファイル構成
+
 <pre>
 .
 ├── LICENSE   # BSD 3条項ライセンスファイル
