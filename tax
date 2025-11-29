@@ -13,8 +13,8 @@ for line in lines:
     line = original.strip()
 
     if not line:
-        continue
-
+        print(f"無効な入力: {original}", file=sys.stderr)
+        sys.exit(1)
     try:
         x = float(line)
         ans.append(str(math.floor(x * 1.10)))
