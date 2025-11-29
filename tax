@@ -5,12 +5,21 @@
 import sys
 import math
 
+lines = sys.stdin.readlines()
+ans = []
 
-for line in sys.stdin:
-    line.strip()
+for line in lines:
+    original = line.rstrip("\n")
+    line = original.strip()
+
     if not line:
         continue
-    x = float(line)
-    ans = x * 1.10
-    ans_floor = math.floor(ans)
-    print(ans_floor)
+
+    try:
+        x = float(line)
+        ans.append(str(math.floor(x * 1.10)))
+    except ValueError:
+        print(f"無効な入力: {original}", file=sys.stderr)
+
+for a in ans:
+    print(a)
