@@ -17,6 +17,9 @@ for line in lines:
         sys.exit(1)
     try:
         x = float(line)
+        if x < 0:
+            print(f"無効な入力: {original}", file=sys.stderr)
+            sys.exit(1)
         ans.append(str(math.floor(x * 1.10)))
     except ValueError:
         print(f"無効な入力: {original}", file=sys.stderr)
