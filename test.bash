@@ -29,23 +29,23 @@ out=$(echo 1 | ./tax)
 
 ### STRANGE INPUT ###
 out=$(echo あ | ./tax) #文字列
-[ "$?" = 0 ] || ng "$LINENO"
+[ "$?" = 1 ] || ng "$LINENO"
 [ "$out" = "" ] || ng "$LINENO"
 
 out=$(echo | ./tax) #空行
-[ "$?" = 0 ] || ng "$LINENO"
+[ "$?" = 1 ] || ng "$LINENO"
 [ "$out" = "" ] || ng "$LINENO"
 
 out=$(echo 1a | ./tax)
-[ "$?" = 0 ] || ng "$LINENO" #数値に文字が混じる
+[ "$?" = 1 ] || ng "$LINENO" #数値に文字が混じる
 [ "$out" = "" ] || ng "$LINENO"
 
 out=$(printf "100\nabc\n200\n" | ./tax) #複数行に文字列
-expected=$(printf "110\n220\n")
-[ "$out" = "$expected" ] || ng "$LINENO"
+[ "$?" = 1 ] || ng "$LINENO"
+[ "$out" = "" ] || ng "$LINENO"
 
 out=$(printf "100\n1a\n200\n" | ./tax) #複数行数値に文字が混じる
-expected=$(printf "110\n220\n")
-[ "$out" = "$expected" ] || ng "$LINENO"
+[ "$?" = 1 ] || ng "$LINENO"
+[ "$out" = "" ] || ng "$LINENO"
 
 [ "$res" = 0 ] && echo 
