@@ -2,7 +2,7 @@
 ![test](https://github.com/A-545/robosys2025/actions/workflows/test.yml/badge.svg)
 
 ## 概要
-`tax` は標準入力から数値を受け取り、_税率10%_を加算して小数点以下切り捨て
+`tax` は標準入力から数値を受け取り、**税率10%** を加算して小数点以下切り捨て
 で出力するコマンドです。
 
 ## インストール方法 (Ubuntu環境)
