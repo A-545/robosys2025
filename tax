@@ -12,22 +12,6 @@ for line in lines:
     original = line.rstrip("\n")
     line = original.strip()
 
-<<<<<<< HEAD
-lines = sys.stdin.readlines() 
-ans = []
-
-for line in lines:
-    line = line.strip()
-    if not line:
-        continue
-    try:
-        x = float(line)
-    except ValueError:    
-        continue
-
-    ans.append(str(math.floor(x * 1.10)))
-print("\n".join(ans))
-=======
     if not line:
         continue
 
@@ -39,4 +23,3 @@ print("\n".join(ans))
 
 for a in ans:
     print(a)
->>>>>>> dev
