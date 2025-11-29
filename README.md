@@ -1,14 +1,22 @@
 # tax
 ![test](https://github.com/A-545/robosys2025/actions/workflows/test.yml/badge.svg)
-_税抜き価格に消費税10%を加算するコマンド_
+_税抜き価格に消費税10%を加算するコマンド_  
 
 ## クローン方法
 以下コマンドをターミナル上で実行
-git clone https://github.com/A-545/robosys2025.git
+g\it clone https://github.com/A-545/robosys2025.git
 
 ### 使い方
 tax は標準入力から数値を受け取り、税率10%を加算して小数点以下切り捨てで出力するコマンドです。
-**例　100円の税込み価格を計算する場合**
+**例　100円の税込み価格を計算する場合**   
+-入力
+```
+echo 100 | ./tax
+```  
+-出力  
+```
+110
+```  
 
 
 
